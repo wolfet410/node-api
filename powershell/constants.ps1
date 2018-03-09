@@ -1,0 +1,1 @@
+$global:PATH = "c:\node-api\powershell"

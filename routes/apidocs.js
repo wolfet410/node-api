@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.send('respond1 with a resource');
+	res.render('index', { title: 'apidocs' });
 });
 
 module.exports = router;

@@ -1,17 +1,17 @@
-var express = require('express');
-var router = express.Router();
+var Common = require('common');
+var Express = require('express');
+var Router = Express.Router();
 
-router.get('/', function(req, res, next) {
-	var exec = require('child_process').exec;
-	console.log('before callback, console screen clears once script begins');
-	var script = 'powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command "& c:\\node-api\\powershell\\extsharingguest.ps1"';
-	exec(script, function(error, stdout, stderr) {
-		console.log('inside the default callback, writes to the server console');
-		console.log('error:', error);
-		console.log('stdout:', stdout);
-		console.log('stderr:', stderr);
-		res.send('sends this back to the browser');
-	});
+Router.get('/', function(req, res, next) {
+	var testResponse = Common.powershell('extsharinggueset.ps1', '-guestName="name" -guestEmail="email"');
+	if (!testResponse.success) {
+		res.status(400).send(testResponse);
+		return;
+	}
+
+	res.status(200).send(testResponse);
+	return;
+
 });
 
-module.exports = router;
+module.exports = Router;

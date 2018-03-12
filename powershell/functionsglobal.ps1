@@ -24,7 +24,6 @@ function Log
 	If ([string]::IsNullOrWhitespace($CustomLogFile)) 
 	{
 		$LogFile = "$PATH" + "\log.csv"
-Write-Host "$LogFile"
 	}
 	Else
 	{

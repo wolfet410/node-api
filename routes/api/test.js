@@ -3,7 +3,13 @@ var Gkn = require('gkn-js'),
 	Router = Express.Router();
 
 Router.get('/', function(req, res, next) {
-	var testResponse = Gkn.Common.powershell('extsharinggueset.ps1', '-guestName="name" -guestEmail="email"');
+	var testResponse = Gkn.Common.powershell('extsharingguest.ps1', '-guestName="name" -guestEmail="email"');
+
+
+
+// **** NEED A PROMISE HERE? ****
+
+
 	if (!testResponse.success) {
 		res.status(400).send(testResponse);
 		return;

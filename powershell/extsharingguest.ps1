@@ -14,9 +14,11 @@ Set-Location -Path "c:\node-api\powershell\"
 
 Write-Host "so, uhhh, sleeping"
 
-Start-Sleep -s 30
+Start-Sleep -s 5
 
 Write-Host "wakey wakey"
+
+throw ("oh shit were gonna die")
 
 Email -Caller "extsharingguest" -Msg "started" -Subject "started" -To "todd.wolfe@gkn.com"
 

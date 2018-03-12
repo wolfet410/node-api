@@ -1,6 +1,6 @@
-var Gkn = require('gkn-js');
-var Express = require('express');
-var Router = Express.Router();
+var Gkn = require('gkn-js'),
+	Express = require('express'),
+	Router = Express.Router();
 
 Router.get('/', function(req, res, next) {
 	var testResponse = Gkn.Common.powershell('extsharinggueset.ps1', '-guestName="name" -guestEmail="email"');

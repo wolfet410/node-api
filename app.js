@@ -1,38 +1,38 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var Express = require('express'),
+	Path = require('path'),
+	Favicon = require('serve-favicon'),
+// var logger = require('morgan');
+	CookieParser = require('cookie-parser'),
+	BodyParser = require('body-parser'),
+	
+	Index = require('./routes/index'),
+	Apidocs = require('./routes/apidocs'),
+	Api = require('./routes/api'),
+	ApiTest = require('./routes/api/test');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var apidocs = require('./routes/apidocs');
-var api = require('./routes/api');
-var apiTest = require('./routes/api/test');
+var DEBUGLOGGING = true;
 
-var app = express();
+var app = Express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', Path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(favicon(Path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(logger('dev'));
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: false }));
+app.use(CookieParser());
 
 // Allows direct serving of anything in public directory
 // Do not use "public" in the URL, http://localhost:3000/stylesheets/style.css
-app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(Express.static(Path.join(__dirname, 'public'))); 
 
-app.use('/', index);
-app.use('/apidocs', apidocs);
-app.use('/api', api);
-app.use('/api/test', apiTest);
-app.use('/users', users);
+app.use('/', Index);
+app.use('/apidocs', Apidocs);
+app.use('/api', Api);
+app.use('/api/test', ApiTest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,4 +53,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

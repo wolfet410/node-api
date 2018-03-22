@@ -3,11 +3,11 @@ var Gkn = require('gkn-js'),
 	Q =require('q'),
 	Router = Express.Router();
 
-Router.get('/', function(req, res, next) {
+Router.post('/', function(req, res, next) {
 	var deferred = Q.defer(),
-		apikey = req.query.apikey,
-		guestName = "Todd 2222", // req.query.guestname,
-		guestEmail = req.query.guestemail,
+		apikey = req.body.apikey,
+		guestName = req.body.guestname,
+		guestEmail = req.body.guestemail,
 		result;
 
 	var checkApiKeyResult = Gkn.Common.checkapikey(apikey);

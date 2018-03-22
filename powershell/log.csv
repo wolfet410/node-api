@@ -23,3 +23,8 @@
 3/12/2018 8:55:38 AM;extsharingguest;EMAIL;started
 3/12/2018 8:57:59 AM;extsharingguest;EMAIL;started
 3/12/2018 9:01:07 AM;extsharingguest;EMAIL;started
+3/22/2018 1:47:09 PM;createaadguest.ps1;EMAIL;New-AzureADMSInvitation done
+3/22/2018 1:54:46 PM;createaadguest.ps1;EMAIL;New-AzureADMSInvitation done
+3/22/2018 1:55:26 PM;createaadguest.ps1;EMAIL;New-AzureADMSInvitation done
+3/22/2018 1:57:54 PM;createaadguest.ps1;EMAIL;createaadguest.ps1 -GuestName asdf -GuestEmail wolfet410@gmail.com
+3/22/2018 2:44:30 PM;createaadguest.ps1;EMAIL;createaadguest.ps1 -GuestName Todd 2222 -GuestEmail wolfet410@gmail.com

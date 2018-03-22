@@ -8,7 +8,7 @@ var Express = require('express'),
 	Index = require('./routes/index'),
 	Apidocs = require('./routes/apidocs'),
 	Api = require('./routes/api'),
-	ApiTest = require('./routes/api/test');
+	ApiCreateAadGuest = require('./routes/api/createaadguest');
 
 var DEBUGLOGGING = true;
 
@@ -32,7 +32,7 @@ app.use(Express.static(Path.join(__dirname, 'public')));
 app.use('/', Index);
 app.use('/apidocs', Apidocs);
 app.use('/api', Api);
-app.use('/api/test', ApiTest);
+app.use('/api/createaadguest', ApiCreateAadGuest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

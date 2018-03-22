@@ -8,6 +8,7 @@ Router.post('/', function(req, res, next) {
 		apikey = req.body.apikey,
 		guestName = req.body.guestname,
 		guestEmail = req.body.guestemail,
+		inviteMessage = req.body.invitemessage,
 		result;
 
 	var checkApiKeyResult = Gkn.Common.checkapikey(apikey);
@@ -26,7 +27,7 @@ Router.post('/', function(req, res, next) {
 		return;
 	}
 
-	Gkn.Common.powershell('createaadguest.ps1', '-GuestName \\"' + guestName + '\\" -GuestEmail \\"' + guestEmail + '\\"')
+	Gkn.Common.powershell('createaadguest.ps1', '-GuestName \\"' + guestName + '\\" -GuestEmail \\"' + guestEmail + '\\" -InviteMessage \\"' + inviteMessage + '\\"')
 		.then(function(response) {
 			result = { success: true, status: 200, caller: 'createaadguest.js>get', data: response.data }
 			Gkn.Common.debuglog(result);
